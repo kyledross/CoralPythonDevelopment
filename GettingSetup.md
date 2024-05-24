@@ -3,7 +3,8 @@ Kyle D. Ross
 Updated 03 May 2024
 
 ## Introduction
-This document outlines the steps and tools necessary to begin development with the Google Coral USB Accelerator. The steps are for the USB Accelerator in particular, but may be largely the same (except for hardware and driver installation) for other Coral accelerators.The steps here were mostly gleaned from the [coral.ai](http://coral.ai) website, and tweaked (and in some cases modernized) accordingly.
+This document outlines the steps and tools necessary to begin development with the Google Coral USB Accelerator. The steps are for the USB Accelerator in particular, but may be largely the same (except for hardware and driver installation) for other Coral accelerators.  
+The steps here were mostly gleaned from the [coral.ai](http://coral.ai) website, and tweaked (and in some cases modernized) accordingly.
 ## Requirements
 
 ### Hardware
