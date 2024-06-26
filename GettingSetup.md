@@ -33,45 +33,73 @@ PyEnv is used to download other versions of Python than your system version. The
 
 #### Retrieving and installing PyEnv
 ##### Get PyEnv Prerequisites
-###### sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl
+```commandline
+sudo apt install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl
+```
 ##### Install PyEnv
-###### curl <https://pyenv.run> | bash
+```commandline
+curl https://pyenv.run | bash
+```
 **_After installing PyEnv, there are recommended changes to some bash scripts that will be displayed in the terminal window. Follow the on-screen directions to complete the installation._**
 
 ### Install the Coral Edge TPU driver
 #### Adding the Google source to your software manager
 We must add the Google repository to our software manager in order to install the drivers for the Coral USB Accelerator.
-###### curl -s <https://packages.cloud.google.com/apt/doc/apt-key.gpg> -o /tmp/google-cloud-key.gpg<sup><sup>[\[2\]](#footnote-1)</sup></sup>
-###### sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/google-cloud.gpg /tmp/google-cloud-key.gpg
-###### rm /tmp/google-cloud-key.gpg
-###### echo "deb \[arch=amd64\] <https://packages.cloud.google.com/apt> coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
-###### sudo apt update
+```commandline
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg -o /tmp/google-cloud-key.gpg
+```
+```commandline
+sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/google-cloud.gpg /tmp/google-cloud-key.gpg
+```
+```commandline
+rm /tmp/google-cloud-key.gpg
+```
+```commandline
+echo "deb [arch=amd64] https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
+```
+```commandline
+sudo apt update
+```
 
 #### Installing the driver
 Standard-speed driver, suitable for ambient temperatures of 35C or less:
-###### sudo apt install libedgetpu1-std<sup><sup>[\[3\]](#footnote-2)</sup></sup>  
+```commandline
+sudo apt install libedgetpu1-std
+```
 Or
 Maximum-speed driver, suitable for ambient temperatures of 25C or less:
-###### sudo apt install libedgetpu1-max
+```commandline
+sudo apt install libedgetpu1-max
+```
 
 Later, if you wish to change from standard to max, or vice-versa, use
 ###### sudo apt remove
 followed by the installed package’s name, then install the driver you wish to change to.  
 For example, to switch from the standard to the max driver, use:
-###### sudo apt remove libedgetpu1-std
-###### sudo apt install libedgetpu1-max
+```commandline
+sudo apt remove libedgetpu1-std
+```
+```commandline
+sudo apt install libedgetpu1-max
+```
 
 #### Preparing hardware
 Connect the Google Coral USB Accelerator. If the accelerator was already connected, disconnect it and reconnect it. This allows Linux to recognize it.
 
 ### Other prerequisites
 The Pycoral project has Python package dependencies that have further dependencies on some apt packages that must be installed. Install these before loading the project and installing Python packages in requirements.txt.
-###### sudo apt install libcairo2-dev pkg-config python3-dev
-###### sudo apt install python3-gi gobject-introspection libgirepository1.0-dev
+```commandline
+sudo apt install libcairo2-dev pkg-config python3-dev
+```
+```commandline
+sudo apt install python3-gi gobject-introspection libgirepository1.0-dev
+```
 
 ## Configuring development environment
 ### Retrieving Python 3.9.0
-###### pyenv install 3.9.0
+```commandline
+pyenv install 3.9.0
+```
 This will download the source to Python 3.9.0, compile it, and place it in ~/.pyenv/versions/3.9.0/bin
 
 ### Retrieving TensorFlow Lite and PyCoral packages##### Download TensorFlow Lite wheel
@@ -93,8 +121,12 @@ _Remember, if you can’t locate something in PyCharm, use double-tap-shift to b
 
 #### Installing requirements
 There are a number of requirements that are not part of the repo, such as pre-built TensorFlow Lite models and labels. These reside in the ./test_data directory once they are downloaded. To download these (if you don’t already have them):
-##### cd ./examples
-##### ./install_requirements.sh
+```commandline
+cd ./examples
+```
+```commandline
+./install_requirements.sh
+```
 
 #### Configuring Python interpreter
 When you have a Python script from the ./examples directory open (such as classify_image.py), PyCharm (at the top of the code window) will complain about an invalid Python interpreter. To fix this:
