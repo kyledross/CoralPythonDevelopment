@@ -84,7 +84,7 @@ sudo apt install libedgetpu1-max
 ```
 
 #### Preparing hardware
-Connect the Google Coral USB Accelerator. If the accelerator was already connected, disconnect it and reconnect it. This allows Linux to recognize it.
+Connect the Google Coral USB Accelerator. **If the accelerator was already connected, disconnect it and reconnect it.** This allows Linux to recognize it.
 
 ### Other prerequisites
 The Pycoral project has Python package dependencies that have further dependencies on some apt packages that must be installed. Install these before loading the project and installing Python packages in requirements.txt.
